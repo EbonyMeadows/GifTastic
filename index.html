@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>GifTastic</title>
+    </head>
+</html>
+<body>
+
+   <script src = ""></script>
+   <script type="text/javascript">
+   
+   // This is our API key
+   var APIKey = "";
+
+   //This is where we put together the URL needed to query the database
+   var queryURL = "";
+
+    // This is where we need to run our Ajax call
+   $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+   
+   // create the gif on click function
+   $(".gif").on("click", function(){
+
+   });
+   
+   
+   
+   
+   </script>
+</body>
