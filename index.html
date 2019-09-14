@@ -7,14 +7,28 @@
 </html>
 <body>
 
-   <script src = ""></script>
+    <div id="button-container">
+      <button class="giphy-button" value="dog">dog</button>
+      <button class="giphy-button" value="cat">cat</button>
+    </div>
+    <div id="gif-container"></div>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
    <script type="text/javascript">
    
    // This is our API key
-   var APIKey = "";
+   var APIKey = "ADRY7TGHb8ib6whXf9WPg2XxKGHds5hd";
 
-   //This is where we put together the URL needed to query the database
-   var queryURL = "";
+   
+   // create the gif on click function
+   $(document).on("click", ".giphy-button", function(){
+     console.log("button hit");
+     searchTerm =  $(this).val()
+     console.log(searchTerm);
+    //This is where we put together the URL needed to query the database
+   var queryURL = "https://api.giphy.com/v1/gifs/search?q="+searchTerm+"&api_key="+APIKey+"&limit=5";
 
     // This is where we need to run our Ajax call
    $.ajax({
@@ -22,10 +36,22 @@
       method: "GET"
     }).then(function(response) {
       console.log(response);
+      gifs=response.data;
+      console.log(gifs);
+      for(i=0;i<gifs.length;i++){
+      
+        gifTag =$("<img>").attr("src", gifs[i].images.original.url);
+        console.log(gifs[i].images.original);
+        $("#gif-container").append(gifTag);
+      }
+     
     });
    
-   // create the gif on click function
-   $(".gif").on("click", function(){
+ //make button with value bar 
+ $("<button>").attr("value", gifs[i].images.original.url);
+ //take value into attr on button
+ //call the attr value
+
 
    });
    
