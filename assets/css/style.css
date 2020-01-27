@@ -1,6 +1,6 @@
 body {
 	font-family: 'Roboto';
-	background: url("../images/background1.jpg");
+	background: url("../images/radBackground.jpg");
 	background-size: cover;
 	width: 80%;
 	margin: auto;
@@ -49,5 +49,6 @@ div .hero {
 }
 
 .gif {
-	border-radius: 5px;
+    border-radius: 20px;
+
 }
