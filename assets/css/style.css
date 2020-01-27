@@ -7,7 +7,7 @@ body {
 	color: black;
 }
 
-.sadboys {
+.Doug {
 	margin: 5px;
 	padding: 5px;
 	outline: none;
@@ -16,7 +16,7 @@ body {
 	border: 3px solid #000;
 	color: #000;
 }
-.sadboys:hover {
+.Doug:hover {
 	background: #DFFF59;
 }
 
@@ -39,12 +39,12 @@ div .hero {
 	border-bottom: 1px solid #ccc;
 }
 
-#add-sadboy {
+#add-Doug {
 	outline: none;
 	border-style: none;
 	background: none;
 }
-#add-sadboy:hover {
+#add-Doug:hover {
 	background: #ccc;
 }
 

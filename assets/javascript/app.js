@@ -2,7 +2,7 @@
 var topics, newButton, newTopic, queryURL, sadboyName, results, sadDiv, rating, gifShow, state;
 
 /**Starter array that holds hero items**/
-topics = ["Macintosh Plus 420", "Vaporwave", "Simpsonwave", "Outrun", "Flamingosis", "Yung Lean", "A e s t h e t i c", "sadboys"];
+topics = ["Rugrats", "Hey Arnold!", "Bobby's World", "Dexter's Laboratory", "Pinky and the Brain", "Disney's Recess", "The Wild Thornberrys", "Doug"];
 
 /**Function to create buttons and clear buttons from screen on every reload**/
 function makeButtons() {
@@ -13,13 +13,13 @@ function makeButtons() {
 	for (var i=0; i<topics.length; i++) {
 		newButton = $("<button>" + topics[i] + "</button>");
 		newButton.attr("data-name", topics[i]);
-		newButton.addClass("sadboys");
+		newButton.addClass("Doug");
 		$("#buttons").append(newButton);
 	};
 };
 
 /**On-click event for adding new buttons**/
-$("#add-sadboy").on("click", function(event){
+$("#add-Doug").on("click", function(event){
 	event.preventDefault();
 	//Prevent blank user input from creating a new button
 	if ($("#user-input").val() !== ""){
@@ -49,9 +49,12 @@ function displayGifs(){
 	//Clear #gifs area when new hero button is selected
 	$("#gifs").html("");
 
-	//Create queryURL using the name of the hero
+    //Create queryURL using the name of the hero
+    
+    var APIKey = "ADRY7TGHb8ib6whXf9WPg2XxKGHds5hd";
+
 	sadboyName = $(this).attr("data-name");
-	queryURL = "https://api.giphy.com/v1/gifs/search?q=" + sadboyName + "&api_key=wnwOhzKBAU126lrFL6GWPci6OB7w90hb&limit=5";
+    queryURL = "https://api.giphy.com/v1/gifs/search?q=" + sadboyName + "&api_key="+APIKey+"&limit=5";
 	
 	//Ajax request
 	$.ajax({
@@ -64,8 +67,8 @@ function displayGifs(){
 		//Loop to access each array in the returned object
 		for(var j=0; j<results.length; j++){
 
-			sadboyDiv = $("<div class='sadboy'>");
-			$("#gifs").append(sadboyDiv);
+			dougDiv = $("<div class='Doug'>");
+			$("#gifs").append(dougDiv);
 
 			//Store and append rating information
 			rating = $("<div>Rating: " + results[j].rating + "</div>");
@@ -77,8 +80,8 @@ function displayGifs(){
 			gifShow.addClass("gif");
 
 			//Append gifs and their ratings to heroDiv
-			sadboyDiv.append(rating);
-			sadboyDiv.append(gifShow);
+			dougDiv.append(rating);
+			dougDiv.append(gifShow);
 		};
 	});
 };
@@ -101,5 +104,5 @@ function animateGif(){
 
 /**Call functions for on-click events -- event delegation**/
 makeButtons();
-$(document).on("click", ".sadboys", displayGifs);
+$(document).on("click", ".Doug", displayGifs);
 $(document).on("click", ".gif", animateGif);
